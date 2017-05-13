@@ -9,8 +9,8 @@ public class PlayerMotor : MonoBehaviour {
 	private float verticalVelocity;
 	private float gravity = 14.0f;
 	private float jumpForce = 8.0f;
-	private float horizontalMove = 0;
-	private float verticalMove = 0;
+	private float horizontalUpdatePos = 0;
+	private float verticalUpdatePos = 0;
 
 	private void Start () {
 		controller = GetComponent<CharacterController> (); 
@@ -23,26 +23,34 @@ public class PlayerMotor : MonoBehaviour {
 	
 		if (controller.isGrounded) {
 			verticalVelocity = -gravity * Time.deltaTime;
-			if (Input.GetAxis ("Horizontal") != 0 || Input.GetAxis ("Vertical") != 0 || Input.touchCount > 0) {
+			if (Input.GetAxis ("Horizontal") != 0 || Input.GetAxis ("Vertical") != 0 || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)) {
 				verticalVelocity = jumpForce;
-				horizontalMove = 0;
-				verticalMove = 0;
+				horizontalUpdatePos = 0;
+				verticalUpdatePos = 0;
+				float horizontalMove = Input.GetAxis ("Horizontal");
+				float verticalMove = Input.GetAxis ("Vertical");
 
-				Debug.Log (Input.GetTouch (0).deltaPosition);
-
-				if (Input.GetAxis ("Horizontal") > 0) {
-					horizontalMove = 1;
-				} else if (Input.GetAxis ("Horizontal") < 0) {
-					horizontalMove = -1;
-				} else if (Input.GetAxis ("Vertical") > 0) {
-					verticalMove = 1;
-				} else if (Input.GetAxis ("Vertical") < 1) {
-					verticalMove = -1;
+				if (Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Moved) {
+					// Get movement of the finger since last frame
+					Vector2 touchDeltaPosition = Input.GetTouch (0).deltaPosition;
+					Debug.Log (touchDeltaPosition);
+					horizontalMove = touchDeltaPosition.x;
+					verticalMove = touchDeltaPosition.y;
+				}
+		
+				if (horizontalMove > 0 && verticalMove < horizontalMove) {
+					horizontalUpdatePos = 1;
+				} else if (horizontalMove < 0 && verticalMove > horizontalMove) {
+					horizontalUpdatePos = -1;
+				} else if (verticalMove > 0) {
+					verticalUpdatePos = 1;
+				} else if (verticalMove < 0) {
+					verticalUpdatePos = -1;
 				}
 			}
 		} else {
-			xValue = horizontalMove;
-			zValue = verticalMove;
+			xValue = horizontalUpdatePos;
+			zValue = verticalUpdatePos;
 			verticalVelocity -= gravity * Time.deltaTime;
 		}
 
