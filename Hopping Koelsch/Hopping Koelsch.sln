@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hopping Koelsch", "Assembly-CSharp-firstpass.csproj", "{03C466F4-2BA0-D9CC-BB88-2FCEE5D49F19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hopping Koelsch", "Assembly-CSharp.csproj", "{A28085A6-DB90-2832-A79F-F4972E66A024}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hopping Koelsch", "Assembly-CSharp-Editor.csproj", "{AA828BD6-39AF-3242-5344-555FA326A564}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{03C466F4-2BA0-D9CC-BB88-2FCEE5D49F19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03C466F4-2BA0-D9CC-BB88-2FCEE5D49F19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03C466F4-2BA0-D9CC-BB88-2FCEE5D49F19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03C466F4-2BA0-D9CC-BB88-2FCEE5D49F19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A28085A6-DB90-2832-A79F-F4972E66A024}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A28085A6-DB90-2832-A79F-F4972E66A024}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A28085A6-DB90-2832-A79F-F4972E66A024}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A28085A6-DB90-2832-A79F-F4972E66A024}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA828BD6-39AF-3242-5344-555FA326A564}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA828BD6-39AF-3242-5344-555FA326A564}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA828BD6-39AF-3242-5344-555FA326A564}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA828BD6-39AF-3242-5344-555FA326A564}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
